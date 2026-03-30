@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Saeed's Bar & Grill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 2rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .gallery-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Photo Gallery</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="gallery.html">Photo Gallery</a>
+    </nav>
+    <main>
+        <h2>Check out our photos!</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="placeholder1.jpg" alt="Delicious Food">
+                <p>Our signature dishes</p>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder2.jpg" alt="Bar Area">
+                <p>Cozy bar atmosphere</p>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder3.jpg" alt="Event">
+                <p>Live music events</p>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder4.jpg" alt="Team">
+                <p>Our friendly staff</p>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder5.jpg" alt="Exterior">
+                <p>Exterior view</p>
+            </div>
+            <div class="gallery-item">
+                <img src="placeholder6.jpg" alt="Drinks">
+                <p>Refreshing drinks</p>
+            </div>
+        </div>
+        <p>Note: Placeholder images. Replace with actual photos.</p>
+    </main>
+    <footer>
+        <p>&copy; 2026 Saeed's Bar & Grill</p>
+    </footer>
+</body>
+</html>
