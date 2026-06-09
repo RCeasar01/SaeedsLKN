@@ -6,165 +6,290 @@
     <title>Saeed's Bar & Grill</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-            background-color: #faf8f5;
-            color: #2c2c2c;
-        }
-        header {
-            background: linear-gradient(160deg, #6b2d0e 0%, #8B4513 60%, #a0522d 100%);
-            color: white;
-            text-align: center;
-            padding: 3.5rem 2rem 3rem;
-        }
-        header img {
-            max-height: 200px;
-            width: auto;
-            margin-bottom: 1.25rem;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
-        }
-        header p {
-            font-size: 1.05rem;
-            font-weight: 300;
-            opacity: 0.88;
-            letter-spacing: 0.3px;
-        }
+        body { font-family: 'Inter', Arial, sans-serif; background: #111; color: #fff; }
+
+        /* ── NAV ── */
         nav {
-            background-color: #1e1e1e;
-            padding: 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5rem;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(6px);
+            height: 68px;
         }
-        nav a {
-            color: #e0d5c8;
-            display: inline-block;
-            padding: 1rem 1.1rem;
+        .nav-logo img { height: 50px; display: block; }
+        .nav-links { display: flex; gap: 0; }
+        .nav-links a {
+            color: #e8ddd0;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 0 1.1rem;
+            line-height: 68px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            background: #8B4513;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .nav-cta:hover { background: #6b2d0e; }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('photos/572111363_18491483800076981_3798658704764823430_n.jpg') center/cover no-repeat;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.65) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 0 1.5rem;
+            max-width: 780px;
+        }
+        .hero-content img {
+            height: 130px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+        }
+        .hero-content p {
+            font-size: 1.15rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            letter-spacing: 0.2px;
+        }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            background: #8B4513;
+            color: #fff;
             text-decoration: none;
             font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
-            transition: color 0.2s, background 0.2s;
-        }
-        nav a:hover, nav a.active {
-            color: #ffffff;
-            background-color: #8B4513;
-        }
-        main {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-        .hero-about {
-            text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 1px solid #e8e2d9;
-            margin-bottom: 2.5rem;
-        }
-        .hero-about h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
             font-weight: 600;
-            color: #6b2d0e;
-            margin-bottom: 1rem;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 0.85rem 2rem;
+            border-radius: 4px;
+            transition: background 0.2s;
         }
-        .hero-about p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: #555;
-            max-width: 600px;
-            margin: 0 auto;
+        .btn-primary:hover { background: #6b2d0e; }
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            padding: 0.85rem 2rem;
+            border-radius: 4px;
+            border: 2px solid rgba(255,255,255,0.7);
+            transition: border-color 0.2s, background 0.2s;
         }
-        .info-cards {
+        .btn-secondary:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+        /* ── FEATURES STRIP ── */
+        .features {
+            background: #1a1a1a;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 3px solid #8B4513;
         }
-        .info-card {
-            background: white;
-            border: 1px solid #e8e2d9;
-            border-radius: 10px;
-            padding: 1.5rem;
+        @media (max-width: 640px) { .features { grid-template-columns: 1fr; } }
+        .feature {
+            padding: 2.5rem 2rem;
             text-align: center;
+            border-right: 1px solid #2a2a2a;
         }
-        .info-card .icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-        }
-        .info-card h3 {
+        .feature:last-child { border-right: none; }
+        .feature .icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+        .feature h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #6b2d0e;
+            font-size: 1.2rem;
+            color: #e8c99a;
             margin-bottom: 0.5rem;
         }
-        .info-card p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
+        .feature p { font-size: 0.9rem; color: #aaa; line-height: 1.6; }
+
+        /* ── ABOUT SECTION ── */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 460px;
         }
-        footer {
-            background-color: #1e1e1e;
-            color: #a09080;
+        @media (max-width: 720px) { .about { grid-template-columns: 1fr; } }
+        .about-img {
+            background: url('photos/649686967_26326300026982022_2908157878727322816_n.jpg') center/cover no-repeat;
+            min-height: 300px;
+        }
+        .about-text {
+            background: #1a1a1a;
+            padding: 4rem 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .about-text .label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #8B4513;
+            margin-bottom: 0.75rem;
+        }
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+        .about-text p {
+            font-size: 0.95rem;
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── HOURS BAND ── */
+        .hours-band {
+            background: #8B4513;
             text-align: center;
-            padding: 1.5rem;
-            font-size: 0.875rem;
-            margin-top: 4rem;
+            padding: 2.5rem 2rem;
         }
+        .hours-band h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        .hours-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+        .hours-grid div { line-height: 1.8; }
+        .hours-grid strong { display: block; font-weight: 600; letter-spacing: 0.5px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+        }
+        footer a { color: #8B4513; text-decoration: none; }
     </style>
 </head>
 <body>
-    <header>
-        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
-        <h1>Welcome to Saeed's Bar & Grill</h1>
-        <p>Your favorite spot for great food, drinks, and events!</p>
-    </header>
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="daily-specials.html">Daily Specials</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="gallery.html">Photo Gallery</a>
+        <div class="nav-logo"><img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill"></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="daily-specials.html">Specials</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="nav-cta">Find Us</a>
     </nav>
-    <main>
-        <div class="hero-about">
-            <h2>About Us</h2>
-            <p>Enjoy delicious meals, refreshing drinks, and a lively atmosphere at Saeed's Bar & Grill. Join us for our monthly events and check out our photo gallery!</p>
-        </div>
-        <div class="info-cards">
-            <div class="info-card">
-                <div class="icon">🍔</div>
-                <h3>Great Food</h3>
-                <p>Handcrafted burgers, sandwiches, appetizers, and more — made fresh every day.</p>
-            </div>
-            <div class="info-card">
-                <div class="icon">🍺</div>
-                <h3>Drinks & Specials</h3>
-                <p>Daily drink specials Mon–Thu, craft beers, cocktails, and happy hour deals.</p>
-            </div>
-            <div class="info-card">
-                <div class="icon">🎶</div>
-                <h3>Live Events</h3>
-                <p>Live music, trivia nights, grill contests, and more throughout the month.</p>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
+            <h1>Saeed's Bar & Grill</h1>
+            <p>Great food, cold drinks & a lively atmosphere in Cornelius, NC</p>
+            <div class="hero-buttons">
+                <a href="menu.html" class="btn-primary">View Our Menu</a>
+                <a href="daily-specials.html" class="btn-secondary">Daily Specials</a>
             </div>
         </div>
-    </main>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="icon">🍔</div>
+            <h3>Great Food</h3>
+            <p>Handcrafted burgers, pitas, subs, and appetizers made fresh every day.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🍺</div>
+            <h3>Drinks & Specials</h3>
+            <p>Daily drink specials Mon–Thu, craft beers, cocktails & happy hour deals.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🎶</div>
+            <h3>Live Events</h3>
+            <p>Live music, trivia nights, grill contests and more throughout the month.</p>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about-img"></div>
+        <div class="about-text">
+            <p class="label">Our Story</p>
+            <h2>Your Favorite Neighborhood Bar & Grill</h2>
+            <p>Enjoy delicious meals, refreshing drinks, and a lively atmosphere at Saeed's Bar & Grill. We've been serving the Lake Norman community with great food and an even better time.</p>
+            <a href="menu.html" class="btn-primary" style="align-self:flex-start;">See Our Menu</a>
+        </div>
+    </section>
+
+    <section class="hours-band">
+        <h2>Hours</h2>
+        <div class="hours-grid">
+            <div><strong>Mon – Thu</strong>11am – 10pm</div>
+            <div><strong>Fri – Sat</strong>11am – 11pm</div>
+            <div><strong>Sunday</strong>12pm – 9pm</div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Saeed's Bar & Grill &mdash; 20832 Catawba Ave, Cornelius, NC 28031</p>
+        <p>📍 20832 Catawba Ave, Cornelius, NC 28031 &nbsp;|&nbsp; 📞 <a href="tel:7048963633">704-896-3633</a> &nbsp;|&nbsp; &copy; 2026 Saeed's Bar & Grill</p>
+        <p style="margin-top:0.5rem; font-size:0.8rem; color:#555;">Developed by <a href="https://bannedproduct.com" target="_blank">BannedProductMediaInc.</a></p>
     </footer>
 </body>
 </html>

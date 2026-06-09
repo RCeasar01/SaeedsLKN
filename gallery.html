@@ -6,161 +6,75 @@
     <title>Photo Gallery - Saeed's Bar & Grill</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-            background-color: #faf8f5;
-            color: #2c2c2c;
-        }
-        header {
-            background: linear-gradient(160deg, #6b2d0e 0%, #8B4513 60%, #a0522d 100%);
-            color: white;
-            text-align: center;
-            padding: 3.5rem 2rem 3rem;
-        }
-        header img {
-            max-height: 200px;
-            width: auto;
-            margin-bottom: 1.25rem;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+        body { font-family: 'Inter', Arial, sans-serif; background: #111; color: #fff; }
         nav {
-            background-color: #1e1e1e;
-            padding: 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 2.5rem; background: rgba(0,0,0,0.85); height: 68px;
         }
-        nav a {
-            color: #e0d5c8;
-            display: inline-block;
-            padding: 1rem 1.1rem;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            letter-spacing: 0.4px;
-            text-transform: uppercase;
-            transition: color 0.2s, background 0.2s;
+        .nav-logo img { height: 50px; display: block; }
+        .nav-links { display: flex; }
+        .nav-links a {
+            color: #e8ddd0; text-decoration: none; font-size: 0.8rem; font-weight: 500;
+            letter-spacing: 0.8px; text-transform: uppercase; padding: 0 1.1rem;
+            line-height: 68px; transition: color 0.2s;
         }
-        nav a:hover, nav a.active {
-            color: #ffffff;
-            background-color: #8B4513;
+        .nav-links a:hover, .nav-links a.active { color: #fff; }
+        .nav-cta {
+            background: #8B4513; color: #fff; text-decoration: none; font-size: 0.8rem;
+            font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;
+            padding: 0.6rem 1.4rem; border-radius: 4px; transition: background 0.2s; white-space: nowrap;
         }
-        main {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+        .nav-cta:hover { background: #6b2d0e; }
+        .page-hero {
+            height: 280px; position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
         }
-        main > h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            color: #6b2d0e;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #e8d5c0;
+        .page-hero-bg {
+            position: absolute; inset: 0;
+            background: url('photos/655880811_26458327997112557_4541499974108045212_n.jpg') center/cover no-repeat;
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 1rem;
-        }
-        .gallery-item {
-            background: white;
-            border: 1px solid #e8e2d9;
-            border-radius: 10px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .gallery-item:hover {
-            transform: scale(1.02);
-        }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.88);
-            z-index: 999;
-            align-items: center;
-            justify-content: center;
-        }
+        .page-hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.65); }
+        .page-hero-content { position: relative; z-index: 1; padding-top: 68px; }
+        .page-hero-content h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; }
+        main { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+        main > h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #e8c99a; margin-bottom: 1.5rem; padding-bottom: 0.6rem; border-bottom: 1px solid #333; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.75rem; }
+        .gallery-item { overflow: hidden; border-radius: 6px; cursor: pointer; aspect-ratio: 4/3; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 999; align-items: center; justify-content: center; }
         .lightbox.open { display: flex; }
-        .lightbox img {
-            max-width: 90vw;
-            max-height: 88vh;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 1rem;
-            right: 1.25rem;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-            line-height: 1;
-            background: none;
-            border: none;
-        }
-        .lightbox-prev, .lightbox-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 2.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0 1rem;
-            opacity: 0.75;
-            transition: opacity 0.2s;
-        }
+        .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: 6px; object-fit: contain; }
+        .lightbox-close { position: absolute; top: 1rem; right: 1.25rem; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; }
+        .lightbox-prev, .lightbox-next { position: absolute; top: 50%; transform: translateY(-50%); color: white; font-size: 2.5rem; cursor: pointer; background: none; border: none; padding: 0 1rem; opacity: 0.7; transition: opacity 0.2s; }
         .lightbox-prev:hover, .lightbox-next:hover { opacity: 1; }
         .lightbox-prev { left: 0.5rem; }
         .lightbox-next { right: 0.5rem; }
-
-        footer {
-            background-color: #1e1e1e;
-            color: #a09080;
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.875rem;
-            margin-top: 4rem;
-        }
+        footer { background: #0a0a0a; color: #888; text-align: center; padding: 2rem; font-size: 0.85rem; border-top: 1px solid #222; }
+        footer a { color: #8B4513; text-decoration: none; }
     </style>
 </head>
 <body>
-    <header>
-        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
-        <h1>Photo Gallery</h1>
-    </header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="daily-specials.html">Daily Specials</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="gallery.html" class="active">Photo Gallery</a>
+        <div class="nav-logo"><img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill"></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="daily-specials.html">Specials</a>
+            <a href="events.html">Events</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <a href="contact.html" class="nav-cta">Find Us</a>
     </nav>
+    <div class="page-hero">
+        <div class="page-hero-bg"></div>
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content"><h1>Photo Gallery</h1></div>
+    </div>
     <main>
         <h2>Check Out Our Photos</h2>
         <div class="gallery" id="gallery">
@@ -188,63 +102,24 @@
             <div class="gallery-item" onclick="openLightbox(21)"><img src="photos/fdbS.jpg" alt="Saeed's Bar & Grill"></div>
         </div>
     </main>
-
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" onclick="closeLightbox()">&#10005;</button>
         <button class="lightbox-prev" onclick="changePhoto(-1)">&#8249;</button>
         <img id="lightbox-img" src="" alt="">
         <button class="lightbox-next" onclick="changePhoto(1)">&#8250;</button>
     </div>
-
     <footer>
-        <p>&copy; 2026 Saeed's Bar & Grill &mdash; 20832 Catawba Ave, Cornelius, NC 28031</p>
+        <p>📍 20832 Catawba Ave, Cornelius, NC 28031 &nbsp;|&nbsp; 📞 <a href="tel:7048963633">704-896-3633</a> &nbsp;|&nbsp; &copy; 2026 Saeed's Bar & Grill</p>
+        <p style="margin-top:0.5rem; font-size:0.8rem; color:#555;">Developed by <a href="https://bannedproduct.com" target="_blank">BannedProductMediaInc.</a></p>
     </footer>
     <script>
-        var photos = [
-            "photos/128424093_3682381335133880_3642244218304746751_n.jpg",
-            "photos/128773473_3685702414801772_6158260303606198336_n.jpg",
-            "photos/348s.jpg",
-            "photos/45146879_2047468181958545_916231448971706368_n.jpg",
-            "photos/45175822_2047685171936846_5445614641193418752_n.jpg",
-            "photos/45210341_2044611095577587_3467301697624211456_n.jpg",
-            "photos/572111363_18491483800076981_3798658704764823430_n.jpg",
-            "photos/646324680_26280821478196544_2964051359761019433_n.jpg",
-            "photos/649686967_26326300026982022_2908157878727322816_n.jpg",
-            "photos/654216517_26458327960445894_1844558807287738912_n.jpg",
-            "photos/655552888_26458328133779210_7054103459012928351_n.jpg",
-            "photos/655880811_26458327997112557_4541499974108045212_n.jpg",
-            "photos/656709618_26458958273716196_1761227282057982624_n.jpg",
-            "photos/656811264_26458958453716178_4336193960823028157_n.jpg",
-            "photos/696771410_18531531619076981_5851097450229697653_n.jpg",
-            "photos/ASDFASW.jpg",
-            "photos/FSADFAS.jpg",
-            "photos/SADFAS.jpg",
-            "photos/SDAFASD.jpg",
-            "photos/SDFAS.jpg",
-            "photos/WEDSGS.jpg",
-            "photos/fdbS.jpg"
-        ];
+        var photos = ["photos/128424093_3682381335133880_3642244218304746751_n.jpg","photos/128773473_3685702414801772_6158260303606198336_n.jpg","photos/348s.jpg","photos/45146879_2047468181958545_916231448971706368_n.jpg","photos/45175822_2047685171936846_5445614641193418752_n.jpg","photos/45210341_2044611095577587_3467301697624211456_n.jpg","photos/572111363_18491483800076981_3798658704764823430_n.jpg","photos/646324680_26280821478196544_2964051359761019433_n.jpg","photos/649686967_26326300026982022_2908157878727322816_n.jpg","photos/654216517_26458327960445894_1844558807287738912_n.jpg","photos/655552888_26458328133779210_7054103459012928351_n.jpg","photos/655880811_26458327997112557_4541499974108045212_n.jpg","photos/656709618_26458958273716196_1761227282057982624_n.jpg","photos/656811264_26458958453716178_4336193960823028157_n.jpg","photos/696771410_18531531619076981_5851097450229697653_n.jpg","photos/ASDFASW.jpg","photos/FSADFAS.jpg","photos/SADFAS.jpg","photos/SDAFASD.jpg","photos/SDFAS.jpg","photos/WEDSGS.jpg","photos/fdbS.jpg"];
         var current = 0;
-        function openLightbox(i) {
-            current = i;
-            document.getElementById("lightbox-img").src = photos[i];
-            document.getElementById("lightbox").classList.add("open");
-        }
-        function closeLightbox() {
-            document.getElementById("lightbox").classList.remove("open");
-        }
-        function changePhoto(dir) {
-            current = (current + dir + photos.length) % photos.length;
-            document.getElementById("lightbox-img").src = photos[current];
-        }
-        document.getElementById("lightbox").addEventListener("click", function(e) {
-            if (e.target === this) closeLightbox();
-        });
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape") closeLightbox();
-            if (e.key === "ArrowLeft") changePhoto(-1);
-            if (e.key === "ArrowRight") changePhoto(1);
-        });
+        function openLightbox(i) { current = i; document.getElementById("lightbox-img").src = photos[i]; document.getElementById("lightbox").classList.add("open"); }
+        function closeLightbox() { document.getElementById("lightbox").classList.remove("open"); }
+        function changePhoto(dir) { current = (current + dir + photos.length) % photos.length; document.getElementById("lightbox-img").src = photos[current]; }
+        document.getElementById("lightbox").addEventListener("click", function(e) { if (e.target === this) closeLightbox(); });
+        document.addEventListener("keydown", function(e) { if (e.key === "Escape") closeLightbox(); if (e.key === "ArrowLeft") changePhoto(-1); if (e.key === "ArrowRight") changePhoto(1); });
     </script>
 </body>
 </html>
