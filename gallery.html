@@ -4,64 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Gallery - Saeed's Bar & Grill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #faf8f5;
+            color: #2c2c2c;
         }
         header {
-            background-color: #8B4513;
+            background: linear-gradient(160deg, #6b2d0e 0%, #8B4513 60%, #a0522d 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3.5rem 2rem 3rem;
+        }
+        header img {
+            max-height: 200px;
+            width: auto;
+            margin-bottom: 1.25rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         nav {
-            background-color: #333;
-            padding: 1rem;
+            background-color: #1e1e1e;
+            padding: 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: white;
-            margin: 0 1rem;
+            color: #e0d5c8;
+            display: inline-block;
+            padding: 1rem 1.1rem;
             text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            transition: color 0.2s, background 0.2s;
         }
-        nav a:hover {
-            text-decoration: underline;
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #8B4513;
         }
         main {
-            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        main > h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #6b2d0e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8d5c0;
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 1rem;
         }
         .gallery-item {
-            background-color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
+            background: white;
+            border: 1px solid #e8e2d9;
+            border-radius: 10px;
+            overflow: hidden;
         }
         .gallery-item img {
             width: 100%;
-            height: auto;
-            border-radius: 5px;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+            background: #e8e2d9;
+        }
+        .gallery-item p {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            color: #666;
+            text-align: center;
+        }
+        .gallery-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #999;
+            text-align: center;
         }
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1e1e1e;
+            color: #a09080;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo" style="max-height:120px; margin-bottom:1rem;">
+        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
         <h1>Photo Gallery</h1>
     </header>
     <nav>
@@ -70,10 +121,10 @@
         <a href="daily-specials.html">Daily Specials</a>
         <a href="events.html">Events</a>
         <a href="contact.html">Contact Us</a>
-        <a href="gallery.html">Photo Gallery</a>
+        <a href="gallery.html" class="active">Photo Gallery</a>
     </nav>
     <main>
-        <h2>Check out our photos!</h2>
+        <h2>Check Out Our Photos</h2>
         <div class="gallery">
             <div class="gallery-item">
                 <img src="placeholder1.jpg" alt="Delicious Food">
@@ -100,10 +151,10 @@
                 <p>Refreshing drinks</p>
             </div>
         </div>
-        <p>Note: Placeholder images. Replace with actual photos.</p>
+        <p class="gallery-note">Replace placeholder images with actual photos.</p>
     </main>
     <footer>
-        <p>&copy; 2026 Saeed's Bar & Grill</p>
+        <p>&copy; 2026 Saeed's Bar & Grill &mdash; 20832 Catawba Ave, Cornelius, NC 28031</p>
     </footer>
 </body>
 </html>

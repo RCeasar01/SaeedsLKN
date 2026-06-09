@@ -4,93 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events - Saeed's Bar & Grill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #faf8f5;
+            color: #2c2c2c;
         }
         header {
-            background-color: #8B4513;
+            background: linear-gradient(160deg, #6b2d0e 0%, #8B4513 60%, #a0522d 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3.5rem 2rem 3rem;
+        }
+        header img {
+            max-height: 200px;
+            width: auto;
+            margin-bottom: 1.25rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         nav {
-            background-color: #333;
-            padding: 1rem;
+            background-color: #1e1e1e;
+            padding: 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: white;
-            margin: 0 1rem;
+            color: #e0d5c8;
+            display: inline-block;
+            padding: 1rem 1.1rem;
             text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            transition: color 0.2s, background 0.2s;
         }
-        nav a:hover {
-            text-decoration: underline;
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #8B4513;
         }
         main {
-            padding: 2rem;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        main > h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #6b2d0e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8d5c0;
+        }
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
         }
         .event {
-            background-color: white;
-            margin: 1rem 0;
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: white;
+            border: 1px solid #e8e2d9;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #8B4513;
+        }
+        .event h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #6b2d0e;
+            margin-bottom: 0.75rem;
+        }
+        .event .meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 0.25rem;
+        }
+        .event .desc {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+            margin-top: 0.75rem;
         }
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1e1e1e;
+            color: #a09080;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo" style="max-height:120px; margin-bottom:1rem;">
+        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
         <h1>Monthly Events</h1>
     </header>
     <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="daily-specials.html">Daily Specials</a>
-        <a href="events.html">Events</a>
+        <a href="events.html" class="active">Events</a>
         <a href="contact.html">Contact Us</a>
         <a href="gallery.html">Photo Gallery</a>
     </nav>
     <main>
         <h2>April 2026 Events</h2>
-        <div class="event">
-            <h3>Live Music Night</h3>
-            <p>Date: April 5, 2026</p>
-            <p>Time: 8:00 PM - 11:00 PM</p>
-            <p>Join us for an evening of live music and great drinks!</p>
-        </div>
-        <div class="event">
-            <h3>Trivia Night</h3>
-            <p>Date: April 12, 2026</p>
-            <p>Time: 7:00 PM - 9:00 PM</p>
-            <p>Test your knowledge and win prizes!</p>
-        </div>
-        <div class="event">
-            <h3>Happy Hour Special</h3>
-            <p>Date: April 20, 2026</p>
-            <p>Time: 5:00 PM - 7:00 PM</p>
-            <p>Discounted drinks and appetizers all evening.</p>
-        </div>
-        <div class="event">
-            <h3>Grill Master Contest</h3>
-            <p>Date: April 28, 2026</p>
-            <p>Time: 6:00 PM - 10:00 PM</p>
-            <p>Watch our chefs compete in a grilling showdown!</p>
+        <div class="events-grid">
+            <div class="event">
+                <h3>Live Music Night</h3>
+                <p class="meta">📅 April 5, 2026</p>
+                <p class="meta">🕗 8:00 PM – 11:00 PM</p>
+                <p class="desc">Join us for an evening of live music and great drinks!</p>
+            </div>
+            <div class="event">
+                <h3>Trivia Night</h3>
+                <p class="meta">📅 April 12, 2026</p>
+                <p class="meta">🕖 7:00 PM – 9:00 PM</p>
+                <p class="desc">Test your knowledge and win prizes!</p>
+            </div>
+            <div class="event">
+                <h3>Happy Hour Special</h3>
+                <p class="meta">📅 April 20, 2026</p>
+                <p class="meta">🕔 5:00 PM – 7:00 PM</p>
+                <p class="desc">Discounted drinks and appetizers all evening.</p>
+            </div>
+            <div class="event">
+                <h3>Grill Master Contest</h3>
+                <p class="meta">📅 April 28, 2026</p>
+                <p class="meta">🕕 6:00 PM – 10:00 PM</p>
+                <p class="desc">Watch our chefs compete in a grilling showdown!</p>
+            </div>
         </div>
     </main>
     <footer>
-        <p>&copy; 2026 Saeed's Bar & Grill</p>
+        <p>&copy; 2026 Saeed's Bar & Grill &mdash; 20832 Catawba Ave, Cornelius, NC 28031</p>
     </footer>
 </body>
 </html>

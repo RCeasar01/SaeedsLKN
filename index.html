@@ -4,53 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saeed's Bar & Grill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #faf8f5;
+            color: #2c2c2c;
         }
         header {
-            background-color: #8B4513;
+            background: linear-gradient(160deg, #6b2d0e 0%, #8B4513 60%, #a0522d 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3.5rem 2rem 3rem;
+        }
+        header img {
+            max-height: 200px;
+            width: auto;
+            margin-bottom: 1.25rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            opacity: 0.88;
+            letter-spacing: 0.3px;
         }
         nav {
-            background-color: #333;
-            padding: 1rem;
+            background-color: #1e1e1e;
+            padding: 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: white;
-            margin: 0 1rem;
+            color: #e0d5c8;
+            display: inline-block;
+            padding: 1rem 1.1rem;
             text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            transition: color 0.2s, background 0.2s;
         }
-        nav a:hover {
-            text-decoration: underline;
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #8B4513;
         }
         main {
-            padding: 2rem;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .hero-about {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 1px solid #e8e2d9;
+            margin-bottom: 2.5rem;
+        }
+        .hero-about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #6b2d0e;
+            margin-bottom: 1rem;
+        }
+        .hero-about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+        }
+        .info-card {
+            background: white;
+            border: 1px solid #e8e2d9;
+            border-radius: 10px;
+            padding: 1.5rem;
             text-align: center;
         }
+        .info-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #6b2d0e;
+            margin-bottom: 0.5rem;
+        }
+        .info-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1e1e1e;
+            color: #a09080;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo" style="max-height:120px; margin-bottom:1rem;">
+        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
         <h1>Welcome to Saeed's Bar & Grill</h1>
         <p>Your favorite spot for great food, drinks, and events!</p>
     </header>
     <nav>
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="menu.html">Menu</a>
         <a href="daily-specials.html">Daily Specials</a>
         <a href="events.html">Events</a>
@@ -58,11 +141,30 @@
         <a href="gallery.html">Photo Gallery</a>
     </nav>
     <main>
-        <h2>About Us</h2>
-        <p>Enjoy delicious meals, refreshing drinks, and lively atmosphere at Saeed's Bar & Grill. Join us for our monthly events and check out our photo gallery!</p>
+        <div class="hero-about">
+            <h2>About Us</h2>
+            <p>Enjoy delicious meals, refreshing drinks, and a lively atmosphere at Saeed's Bar & Grill. Join us for our monthly events and check out our photo gallery!</p>
+        </div>
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="icon">🍔</div>
+                <h3>Great Food</h3>
+                <p>Handcrafted burgers, sandwiches, appetizers, and more — made fresh every day.</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">🍺</div>
+                <h3>Drinks & Specials</h3>
+                <p>Daily drink specials Mon–Thu, craft beers, cocktails, and happy hour deals.</p>
+            </div>
+            <div class="info-card">
+                <div class="icon">🎶</div>
+                <h3>Live Events</h3>
+                <p>Live music, trivia nights, grill contests, and more throughout the month.</p>
+            </div>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2026 Saeed's Bar & Grill</p>
+        <p>&copy; 2026 Saeed's Bar & Grill &mdash; 20832 Catawba Ave, Cornelius, NC 28031</p>
     </footer>
 </body>
 </html>

@@ -4,61 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Saeed's Bar & Grill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: #faf8f5;
+            color: #2c2c2c;
         }
         header {
-            background-color: #8B4513;
+            background: linear-gradient(160deg, #6b2d0e 0%, #8B4513 60%, #a0522d 100%);
             color: white;
             text-align: center;
-            padding: 2rem;
+            padding: 3.5rem 2rem 3rem;
+        }
+        header img {
+            max-height: 200px;
+            width: auto;
+            margin-bottom: 1.25rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         nav {
-            background-color: #333;
-            padding: 1rem;
+            background-color: #1e1e1e;
+            padding: 0;
             text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: white;
-            margin: 0 1rem;
+            color: #e0d5c8;
+            display: inline-block;
+            padding: 1rem 1.1rem;
             text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            transition: color 0.2s, background 0.2s;
         }
-        nav a:hover {
-            text-decoration: underline;
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            background-color: #8B4513;
         }
         main {
-            padding: 2rem;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
         }
         .menu-section {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+        }
+        .menu-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #6b2d0e;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8d5c0;
+            margin-bottom: 1.25rem;
         }
         .menu-item {
             display: flex;
             justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #ddd;
+            align-items: baseline;
+            padding: 0.6rem 0 0.2rem;
+        }
+        .menu-item .name {
+            font-weight: 500;
+            font-size: 0.975rem;
+        }
+        .menu-item .price {
+            font-weight: 500;
+            color: #8B4513;
+            font-size: 0.975rem;
+            white-space: nowrap;
+            margin-left: 1rem;
+        }
+        .menu-item-desc {
+            font-size: 0.875rem;
+            color: #777;
+            line-height: 1.6;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0ebe4;
+        }
+        .sides-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-top: 0.25rem;
+        }
+        .sides-list li {
+            background: #f0ebe4;
+            border-radius: 20px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.875rem;
+            color: #555;
         }
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #1e1e1e;
+            color: #a09080;
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            font-size: 0.875rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo" style="max-height:120px; margin-bottom:1rem;">
+        <img src="saeeds_logo_trans.png" alt="Saeed's Bar & Grill logo">
         <h1>Our Menu</h1>
     </header>
     <nav>
         <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
+        <a href="menu.html" class="active">Menu</a>
         <a href="daily-specials.html">Daily Specials</a>
         <a href="events.html">Events</a>
         <a href="contact.html">Contact Us</a>
@@ -67,157 +138,82 @@
     <main>
         <section class="menu-section">
             <h2>Appetizers</h2>
-            <div class="menu-item">
-                <span>Mozzarella Cheese Sticks</span>
-                <span>$13</span>
-            </div>
-            <p>Six mozzarella cheese sticks lightly fried and served with marinara and ranch.</p>
-            <div class="menu-item">
-                <span>Pizza Rolls</span>
-                <span>$12</span>
-            </div>
-            <p>Twelve delicious pizza rolls filled with pepperoni and cheese. Served with marinara and ranch.</p>
-            <div class="menu-item">
-                <span>Stuffed Jalapeno</span>
-                <span>$13</span>
-            </div>
-            <p>Six big jalapenos, battered and fried. Served with ranch.</p>
-            <div class="menu-item">
-                <span>Wing Basket</span>
-                <span>$14</span>
-            </div>
-            <p>Six delicious pieces dipped in SAEED’S own hot sauce. Served with French fries and ranch.</p>
-            <div class="menu-item">
-                <span>Veggie Egg Rolls</span>
-                <span>$13</span>
-            </div>
-            <p>Six vegetarian egg rolls deep fried served with ranch.</p>
-            <div class="menu-item">
-                <span>Appetizer Plate</span>
-                <span>$18</span>
-            </div>
-            <p>3 chicken tenders, 3 mozzarella sticks, 3 jalapeno poppers and French fries. Served with ranch, marinara and ketchup.</p>
+            <div class="menu-item"><span class="name">Mozzarella Cheese Sticks</span><span class="price">$13</span></div>
+            <p class="menu-item-desc">Six mozzarella cheese sticks lightly fried and served with marinara and ranch.</p>
+            <div class="menu-item"><span class="name">Pizza Rolls</span><span class="price">$12</span></div>
+            <p class="menu-item-desc">Twelve delicious pizza rolls filled with pepperoni and cheese. Served with marinara and ranch.</p>
+            <div class="menu-item"><span class="name">Stuffed Jalapeño</span><span class="price">$13</span></div>
+            <p class="menu-item-desc">Six big jalapeños, battered and fried. Served with ranch.</p>
+            <div class="menu-item"><span class="name">Wing Basket</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Six delicious pieces dipped in SAEED'S own hot sauce. Served with French fries and ranch.</p>
+            <div class="menu-item"><span class="name">Veggie Egg Rolls</span><span class="price">$13</span></div>
+            <p class="menu-item-desc">Six vegetarian egg rolls deep fried served with ranch.</p>
+            <div class="menu-item"><span class="name">Appetizer Plate</span><span class="price">$18</span></div>
+            <p class="menu-item-desc">3 chicken tenders, 3 mozzarella sticks, 3 jalapeño poppers and French fries. Served with ranch, marinara and ketchup.</p>
         </section>
 
         <section class="menu-section">
             <h2>Burgers</h2>
-            <div class="menu-item">
-                <span>House Burger</span>
-                <span>$14</span>
-            </div>
-            <p>A quarter pounder covered with homemade chili, cheddar cheese, lettuce, tomato, onion and mayonnaise.</p>
-            <div class="menu-item">
-                <span>Wildcat Burger</span>
-                <span>$14</span>
-            </div>
-            <p>A juicy burger topped with provolone cheese, cajun spices, lettuce, tomato, onion, ketchup and mayonnaise.</p>
+            <div class="menu-item"><span class="name">House Burger</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">A quarter pounder covered with homemade chili, cheddar cheese, lettuce, tomato, onion and mayonnaise.</p>
+            <div class="menu-item"><span class="name">Wildcat Burger</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">A juicy burger topped with provolone cheese, cajun spices, lettuce, tomato, onion, ketchup and mayonnaise.</p>
         </section>
 
         <section class="menu-section">
             <h2>Sandwiches & Plates</h2>
-            <div class="menu-item">
-                <span>Chicken Pita</span>
-                <span>$14</span>
-            </div>
-            <p>Grilled chicken sautéed with bell peppers, onions, spices and melted cheddar cheese. Served with mayonnaise, lettuce, tomato in a hot pita pocket.</p>
-            <div class="menu-item">
-                <span>Ham Explosion</span>
-                <span>$14</span>
-            </div>
-            <p>Thinly sliced ham sautéed with bell peppers, onions, spices and cheddar cheese in a hot pita with mayonnaise, lettuce and tomato.</p>
-            <div class="menu-item">
-                <span>Gyro</span>
-                <span>$14</span>
-            </div>
-            <p>Combination of beef and lamb loaded into a pita with lettuce, tomato, onions and gyro sauce.</p>
-            <div class="menu-item">
-                <span>Streak Sub</span>
-                <span>$14</span>
-            </div>
-            <p>Steak, bell peppers, onions, spices, provolone and American cheese. Served with lettuce, tomato and mayonnaise on a hoagie roll.</p>
-            <div class="menu-item">
-                <span>Chicken Finger Sub</span>
-                <span>$14</span>
-            </div>
-            <p>Golden brown chicken strips with melted provolone and cheddar cheese. Served with lettuce, tomato, mayonnaise.</p>
-            <div class="menu-item">
-                <span>Ruben Sandwich</span>
-                <span>$14</span>
-            </div>
-            <p>Layers of fresh cut corned beef with homemade Thousand Island dressing and sauerkraut on rye bread.</p>
-            <div class="menu-item">
-                <span>Club Sandwich</span>
-                <span>$14</span>
-            </div>
-            <p>Layers of ham, turkey, bacon, American cheese topped off with lettuce, tomato and mayonnaise.</p>
-            <div class="menu-item">
-                <span>Cuttlet Patties</span>
-                <span>$14</span>
-            </div>
-            <p>Mediterranean home made beef patties with mayo, lettuce, tomato, banana peppers served on a fresh hot sub roll.</p>
+            <div class="menu-item"><span class="name">Chicken Pita</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Grilled chicken sautéed with bell peppers, onions, spices and melted cheddar cheese. Served with mayonnaise, lettuce, tomato in a hot pita pocket.</p>
+            <div class="menu-item"><span class="name">Ham Explosion</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Thinly sliced ham sautéed with bell peppers, onions, spices and cheddar cheese in a hot pita with mayonnaise, lettuce and tomato.</p>
+            <div class="menu-item"><span class="name">Gyro</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Combination of beef and lamb loaded into a pita with lettuce, tomato, onions and gyro sauce.</p>
+            <div class="menu-item"><span class="name">Steak Sub</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Steak, bell peppers, onions, spices, provolone and American cheese. Served with lettuce, tomato and mayonnaise on a hoagie roll.</p>
+            <div class="menu-item"><span class="name">Chicken Finger Sub</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Golden brown chicken strips with melted provolone and cheddar cheese. Served with lettuce, tomato, mayonnaise.</p>
+            <div class="menu-item"><span class="name">Reuben Sandwich</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Layers of fresh cut corned beef with homemade Thousand Island dressing and sauerkraut on rye bread.</p>
+            <div class="menu-item"><span class="name">Club Sandwich</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Layers of ham, turkey, bacon, American cheese topped off with lettuce, tomato and mayonnaise.</p>
+            <div class="menu-item"><span class="name">Cutlet Patties</span><span class="price">$14</span></div>
+            <p class="menu-item-desc">Mediterranean homemade beef patties with mayo, lettuce, tomato, banana peppers served on a fresh hot sub roll.</p>
         </section>
 
         <section class="menu-section">
             <h2>Plates / Subs</h2>
-            <div class="menu-item">
-                <span>Shrimp Plate</span>
-                <span>$15</span>
-            </div>
-            <p>Eight nicely fried shrimp served with cocktail sauce and your choice of side.</p>
-            <div class="menu-item">
-                <span>Chicken Tender Plate</span>
-                <span>$12</span>
-            </div>
-            <p>Three chicken strips with your choice of sauce.</p>
-            <div class="menu-item">
-                <span>Chicken Salad</span>
-                <span>$12</span>
-            </div>
-            <p>Homemade chicken salad served with lettuce, tomato, served on hoagie roll.</p>
-            <div class="menu-item">
-                <span>Italian Sub</span>
-                <span>$12</span>
-            </div>
-            <p>Ham, pepperoni, provolone cheese, onions, lettuce, tomato, mustard, mayonnaise and Italian dressing.</p>
-            <div class="menu-item">
-                <span>Pizza Sub</span>
-                <span>$12</span>
-            </div>
-            <p>Your choice of pepperoni or ham served on a hot hoagie roll with mozzarella cheese.</p>
+            <div class="menu-item"><span class="name">Shrimp Plate</span><span class="price">$15</span></div>
+            <p class="menu-item-desc">Eight nicely fried shrimp served with cocktail sauce and your choice of side.</p>
+            <div class="menu-item"><span class="name">Chicken Tender Plate</span><span class="price">$12</span></div>
+            <p class="menu-item-desc">Three chicken strips with your choice of sauce.</p>
+            <div class="menu-item"><span class="name">Chicken Salad</span><span class="price">$12</span></div>
+            <p class="menu-item-desc">Homemade chicken salad served with lettuce, tomato on a hoagie roll.</p>
+            <div class="menu-item"><span class="name">Italian Sub</span><span class="price">$12</span></div>
+            <p class="menu-item-desc">Ham, pepperoni, provolone cheese, onions, lettuce, tomato, mustard, mayonnaise and Italian dressing.</p>
+            <div class="menu-item"><span class="name">Pizza Sub</span><span class="price">$12</span></div>
+            <p class="menu-item-desc">Your choice of pepperoni or ham served on a hot hoagie roll with mozzarella cheese.</p>
         </section>
 
         <section class="menu-section">
             <h2>Salads</h2>
-            <div class="menu-item">
-                <span>Greek Salad</span>
-                <span>$13</span>
-            </div>
-            <p>Bed of lettuce topped with gyro meat, tomato, cucumber, black olives, onion, feta cheese served with vinaigrette dressing.</p>
-            <div class="menu-item">
-                <span>Grilled Chicken Salad</span>
-                <span>$13</span>
-            </div>
-            <p>Bed of lettuce topped with grilled chicken, tomato, cucumber, onion and cheddar cheese with Italian dressing.</p>
+            <div class="menu-item"><span class="name">Greek Salad</span><span class="price">$13</span></div>
+            <p class="menu-item-desc">Bed of lettuce topped with gyro meat, tomato, cucumber, black olives, onion, feta cheese served with vinaigrette dressing.</p>
+            <div class="menu-item"><span class="name">Grilled Chicken Salad</span><span class="price">$13</span></div>
+            <p class="menu-item-desc">Bed of lettuce topped with grilled chicken, tomato, cucumber, onion and cheddar cheese with Italian dressing.</p>
         </section>
 
         <section class="menu-section">
             <h2>Sides</h2>
-            <div class="menu-item">
-                <span>French Fries</span>
-            </div>
-            <div class="menu-item">
-                <span>Chips</span>
-            </div>
-            <div class="menu-item">
-                <span>Onion Rings</span>
-            </div>
-            <div class="menu-item">
-                <span>Potato Salad</span>
-            </div>
+            <ul class="sides-list">
+                <li>French Fries</li>
+                <li>Chips</li>
+                <li>Onion Rings</li>
+                <li>Potato Salad</li>
+            </ul>
         </section>
     </main>
     <footer>
-        <p>&copy; 2026 Saeed's Bar & Grill</p>
+        <p>&copy; 2026 Saeed's Bar & Grill &mdash; 20832 Catawba Ave, Cornelius, NC 28031</p>
     </footer>
 </body>
 </html>
