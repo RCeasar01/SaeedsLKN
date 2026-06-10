@@ -17,7 +17,7 @@
     }
 
     html, body {
-      height: 100%;
+      min-height: 100%;
       background: var(--bg);
       color: var(--white);
       font-family: 'Montserrat', sans-serif;
@@ -25,7 +25,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      overflow: hidden;
     }
 
     body::before {
@@ -39,8 +38,9 @@
     .wrap {
       position: relative;
       z-index: 1;
-      padding: 2rem 1.5rem;
+      padding: 3rem 1.5rem 6rem;
       max-width: 560px;
+      width: 100%;
     }
 
     .logo-wrap { margin-bottom: 2.5rem; }
@@ -115,6 +115,29 @@
       margin-bottom: 2.5rem;
     }
 
+    .info-block {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .info-row {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .info-row .icon { color: var(--accent); font-size: 0.85rem; }
+    .info-row a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .info-row a:hover { color: var(--accent); }
+
     .cta {
       display: inline-block;
       border: 1px solid var(--accent);
@@ -158,6 +181,25 @@
     <h1>Something <span>Great</span><br>Is Coming</h1>
 
     <p>We're putting the finishing touches on the new Saeed's LKN experience. Check back soon for our full menu, daily specials, events, and more.</p>
+
+    <div class="info-block">
+      <div class="info-row">
+        <span class="icon">📍</span>
+        <a href="https://maps.google.com/?q=20832+Catawba+Ave,+Cornelius,+NC+28031" target="_blank" rel="noopener">
+          20832 Catawba Ave, Cornelius, NC 28031
+        </a>
+      </div>
+      <div class="info-row">
+        <span class="icon">🕐</span>
+        Open 7 Days a Week
+      </div>
+      <div class="info-row">
+        <span class="icon">📘</span>
+        <a href="https://www.facebook.com/SaeedsKaraokeBarandGrill/" target="_blank" rel="noopener">
+          Follow us on Facebook
+        </a>
+      </div>
+    </div>
 
     <a href="mailto:info@saeedslkn.com" class="cta">Get Notified</a>
   </div>
