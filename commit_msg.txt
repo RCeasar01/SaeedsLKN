@@ -1,1 +1,1 @@
-update BannedProduct link to bannedproductmedia.com
+﻿Remove CNAME to disconnect GitHub Pages from live domain
